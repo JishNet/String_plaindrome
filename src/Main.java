@@ -1,24 +1,25 @@
-public class Main {
+public class Text {
 
 
-    static boolean reverse(String s,int l) {
+    static boolean reverse(String s,int right,int left) {
 
-        if(l==0) return true ;
-        if(s.charAt(0)==s.charAt(l)) {
-            l--;
-            return reverse(s.substring(1),l-1) ;
-        }
+         if(left>=right) return true ;
+         if(s.charAt(left)==s.charAt(right)) {
 
-        return false ;
+             return reverse(s,right-1,left+1) ;
+         }
+
+         return false ;
 
     }
     public static void main(String... args) {
 
-        String name =  "123454321" ;
-        int l =  name.length()- 1 ;
+        String name =  "abccba" ;
+        int right =  name.length()- 1 ;
+        int left =0 ;
 
 
-        System.out.println(reverse(name,l)) ;
+        System.out.println(reverse(name,right,left)) ;
     }
 
 }
